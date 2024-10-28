@@ -17,6 +17,7 @@ model User {
   passwordHashed String
   accessToken String @unique
   messages Message[]
+  reports Report[]
   color String
 }
 
@@ -24,6 +25,15 @@ model Message {
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
   content String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int
+  reports Report[]
+}
+
+model Report {
+  id Int @id @default(autoincrement())
+  message Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  messageId Int
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
 }

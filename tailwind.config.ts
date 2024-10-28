@@ -1,15 +1,15 @@
 import type { Config } from 'tailwindcss';
 
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 
-  theme: {
-    extend: {}
-  },
+	theme: {
+		extend: {}
+	},
 
-  daisyui: {
-    themes: ['sunset']
-  },
+	daisyui: {
+		themes: ['sunset']
+	},
 
-  plugins: [require('daisyui')]
+	plugins: [require('daisyui')]
 } as Config;
